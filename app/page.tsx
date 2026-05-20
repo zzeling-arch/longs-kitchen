@@ -220,7 +220,7 @@ export default function Home() {/*  */
             </h3>
 
             <p className="text-gray-400">
-              Bold Hunan Flavor. Modern Chinese Dining.
+              Authentic Hunan Cuisine. Bold Spice. Wok-Fired Flavor.
             </p>
           </div>
 
@@ -230,11 +230,11 @@ export default function Home() {/*  */
             </h4>
 
             <p className="text-gray-400">
-              (626) 888-8888
+              (949) 379-6188
             </p>
 
             <p className="text-gray-400">
-              info@longskitchen.com
+              zzeling@gmail.com
             </p>
           </div>
 
@@ -244,11 +244,11 @@ export default function Home() {/*  */
             </h4>
 
             <p className="text-gray-400">
-              Mon - Thu: 11AM - 9PM
+              Mon - Thu: 11AM - 10PM
             </p>
 
             <p className="text-gray-400">
-              Fri - Sun: 11AM - 10PM
+              Fri - Sun: 11AM - 12PM
             </p>
           </div>
 
@@ -258,7 +258,7 @@ export default function Home() {/*  */
             </h4>
 
             <p className="text-gray-400">
-              Los Angeles, California
+              15435 Jerffery Rd #103, Irvine, CA 92618
             </p>
 
             <p className="text-gray-400">
