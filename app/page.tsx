@@ -11,9 +11,9 @@ export default function Home() {/*  */
           <h1 className="text-2xl font-bold text-red-500">湘味馆</h1>
 
           <div className="flex gap-6 text-white">
-            <a href="#">Menu</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="/menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
           </div>
         </nav>
 
@@ -49,7 +49,7 @@ export default function Home() {/*  */
           </div>
         </div>
       </section>
-      <section className="bg-black px-8 py-24 text-white">
+      <section id="about" className="bg-black px-8 py-24 text-white">
 
         <h2 className="mb-16 text-center text-5xl font-bold">
           Signature Dishes
@@ -210,8 +210,10 @@ export default function Home() {/*  */
         </div>
 
       </section>
-      <section className="border-t border-neutral-800 bg-black px-8 py-16 text-white">
-
+      <section
+        id="contact"
+        className="border-t border-neutral-800 bg-black px-8 py-16 text-white"
+      >
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-4">
 
           <div>
@@ -267,7 +269,21 @@ export default function Home() {/*  */
           </div>
 
         </div>
+        <section className="mb-16">
+          <h2 className="mb-8 text-center text-4xl font-bold">
+            Visit Us
+          </h2>
 
+          <div className="overflow-hidden rounded-3xl border border-neutral-800">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.0975493131064!2d-117.77926360000001!3d33.680538199999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcdd0665747287%3A0x6176ad8e39719fdd!2sLong&#39;s%20Kitchen!5e0!3m2!1sen!2sus!4v1779315608900!5m2!1sen!2sus"
+              width="100%"
+              height="450"
+              loading="lazy"
+              className="border-0"
+            ></iframe>
+          </div>
+        </section>
         <div className="mt-16 border-t border-neutral-800 pt-8 text-center text-sm text-gray-500">
           © 2026 Long&apos;s Kitchen. All rights reserved.
         </div>
