@@ -1,4 +1,10 @@
-export default function Home() {/*  */
+"use client";
+
+import { useState } from "react";
+
+export default function Home() {
+  const [lang, setLang] = useState("en");
+
   return (
     <main className="min-h-screen text-white">
       <section
@@ -11,9 +17,18 @@ export default function Home() {/*  */
           <h1 className="text-2xl font-bold text-red-500">湘味馆</h1>
 
           <div className="flex gap-6 text-white">
-            <a href="/menu">Menu</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="/menu">
+              {lang === "en" ? "Menu" : "菜单"}
+            </a>
+            <a href="#about">
+              {lang === "en" ? "About" : "关于我们"}
+            </a>
+            <a href="#contact">
+              {lang === "en" ? "Contact" : "联系我们"}
+            </a>
+
+            <button onClick={() => setLang("en")}>EN</button>
+            <button onClick={() => setLang("zh")}>中文</button>
           </div>
         </nav>
 
@@ -21,15 +36,17 @@ export default function Home() {/*  */
 
         <div className="relative z-10">
           <h1 className="mb-4 text-6xl font-bold text-red-500 md:text-8xl">
-            湘味馆
+            {lang === "en" ? "Long's Kitchen" : "湘味馆"}
           </h1>
 
           <h2 className="mb-6 text-4xl tracking-wide md:text-5xl">
-            Long&apos;s Kitchen
+            {lang === "en" ? "Authentic Hunan Cuisine" : "正宗湖南风味"}
           </h2>
 
           <p className="mb-8 text-lg text-gray-300">
-            Bold Hunan Flavor. Modern Chinese Dining.
+            {lang === "en"
+              ? "Bold Hunan Flavor. Modern Chinese Dining."
+              : "香辣湘味，地道湖南菜。"}
           </p>
 
           <div className="flex justify-center gap-4 rounded-full bg-black/20 px-6 py-4 backdrop-blur-sm">
@@ -37,14 +54,14 @@ export default function Home() {/*  */
               href="/menu"
               className="rounded-full bg-red-600 px-6 py-3 hover:bg-red-700"
             >
-              View Menu
+              {lang === "en" ? "View Menu" : "查看菜单"}
             </a>
 
             <a
               href="/order"
               className="rounded-full border border-white px-6 py-3 transition hover:bg-white hover:text-black"
             >
-              Order Online
+              {lang === "en" ? "Order Online" : "在线订购"}
             </a>
           </div>
         </div>
@@ -52,7 +69,7 @@ export default function Home() {/*  */
       <section id="about" className="bg-black px-8 py-24 text-white">
 
         <h2 className="mb-16 text-center text-5xl font-bold">
-          Signature Dishes
+          {lang === "en" ? "Signature Dishes" : "招牌菜"}
         </h2>
 
         <div className="grid gap-10 md:grid-cols-3">
@@ -66,11 +83,13 @@ export default function Home() {/*  */
 
             <div className="p-6">
               <h3 className="mb-2 text-2xl font-bold">
-                小炒黄牛肉
+                {lang === "en" ? "Spicy Hunan Beef" : "小炒黄牛肉"}
               </h3>
 
               <p className="text-gray-400">
-                Wok-fired sliced beef with fresh chili peppers and signature Hunan spice.
+                {lang === "en"
+                  ? "Wok-fired sliced beef with fresh chili peppers and signature Hunan spice."
+                  : "鲜辣下饭，锅气十足的经典湖南小炒。"}
               </p>
             </div>
           </div>
@@ -88,7 +107,9 @@ export default function Home() {/*  */
               </h3>
 
               <p className="text-gray-400">
-                Steamed fish head topped with vibrant chopped chili sauce.
+                {lang === "en"
+                  ? "Steamed fish head topped with vibrant chopped chili sauce."
+                  : "剁椒鲜香浓郁，经典湘菜招牌鱼头。"}
               </p>
             </div>
           </div>
@@ -106,7 +127,9 @@ export default function Home() {/*  */
               </h3>
 
               <p className="text-gray-400">
-                Slow-braised pork belly glazed in rich soy caramel sauce.
+                {lang === "en"
+                  ? "Slow-braised pork belly glazed in rich soy caramel sauce."
+                  : "肥而不腻，酱香浓郁的湖南红烧肉。"}
               </p>
             </div>
           </div>
@@ -118,22 +141,19 @@ export default function Home() {/*  */
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-center">
           <div>
             <p className="mb-4 text-sm uppercase tracking-[0.3em] text-red-500">
-              Our Story
+              {lang === "en" ? "Our Story" : "关于我们"}
             </p>
 
             <h2 className="mb-6 text-4xl font-bold md:text-5xl">
-              Authentic Hunan Flavor, Reimagined for Today.
+              {lang === "en"
+                ? "Authentic Hunan Flavor, Reimagined for Today."
+                : "传统湘味，现代呈现。"}
             </h2>
 
-            <p className="mb-6 text-lg leading-8 text-gray-300">
-              At Long&apos;s Kitchen, we bring the bold spirit of Hunan cuisine to a
-              modern dining experience — balancing smoky wok aroma, fresh chili heat,
-              and comforting traditional recipes.
-            </p>
-
             <p className="text-gray-400">
-              From wok-fired beef to chopped chili fish head, every dish is crafted
-              with intensity, freshness, and the unmistakable flavor of 湘味.
+              {lang === "en"
+                ? "From wok-fired beef to chopped chili fish head, every dish is crafted with intensity, freshness, and the unmistakable flavor of Hunan cuisine."
+                : "从小炒黄牛肉到剁椒鱼头，每一道菜都充满锅气、鲜辣和地道湖南风味。"}
             </p>
           </div>
 
@@ -141,17 +161,23 @@ export default function Home() {/*  */
             <div className="grid gap-6">
               <div>
                 <h3 className="text-2xl font-bold text-red-500">01</h3>
-                <p className="text-gray-300">Fresh chili and bold aromatics</p>
+                <p className="text-gray-300">
+                  {lang === "en" ? "Fresh chili and bold aromatics" : "新鲜辣椒与浓郁香气"}
+                </p>
               </div>
 
               <div>
                 <h3 className="text-2xl font-bold text-red-500">02</h3>
-                <p className="text-gray-300">Wok-fired flavor with real heat</p>
+                <p className="text-gray-300">
+                  {lang === "en" ? "Wok-fired flavor with real heat" : "锅气十足，鲜辣有劲"}
+                </p>
               </div>
 
               <div>
                 <h3 className="text-2xl font-bold text-red-500">03</h3>
-                <p className="text-gray-300">Modern Chinese dining experience</p>
+                <p className="text-gray-300">
+                  {lang === "en" ? "Modern Chinese dining experience" : "现代中式用餐体验"}
+                </p>
               </div>
             </div>
           </div>
@@ -160,14 +186,18 @@ export default function Home() {/*  */
       <section className="bg-black px-8 py-24 text-white">
 
         <h2 className="mb-16 text-center text-5xl font-bold">
-          What Our Guests Say
+          {lang === "en"
+            ? "What Our Guests Say"
+            : "顾客评价"}
         </h2>
 
         <div className="grid gap-8 md:grid-cols-3">
 
           <div className="rounded-3xl bg-neutral-900 p-8">
             <p className="mb-6 text-gray-300">
-              “Probably the best Hunan food I’ve had in Los Angeles.”
+              {lang === "en"
+                ? "Probably the best Hunan food I’ve had in Los Angeles."
+                : " probably 是我在洛杉矶吃过的最好的湖南菜。"}
             </p>
 
             <h3 className="font-bold text-red-500">
@@ -175,13 +205,15 @@ export default function Home() {/*  */
             </h3>
 
             <p className="mt-2 text-sm text-gray-500">
-              Google Review
+              {lang === "en" ? "Google Review" : "谷歌评价"}
             </p>
           </div>
 
           <div className="rounded-3xl bg-neutral-900 p-8">
             <p className="mb-6 text-gray-300">
-              “Authentic spice, amazing wok flavor, and beautiful atmosphere.”
+              {lang === "en"
+                ? "Authentic spice, amazing wok flavor, and beautiful atmosphere."
+                : "地道的辣味、令人惊叹的锅气和美丽的氛围。"}
             </p>
 
             <h3 className="font-bold text-red-500">
@@ -189,13 +221,15 @@ export default function Home() {/*  */
             </h3>
 
             <p className="mt-2 text-sm text-gray-500">
-              Yelp Review
+              {lang === "en" ? "Yelp Review" : "Yelp评价"}
             </p>
           </div>
 
           <div className="rounded-3xl bg-neutral-900 p-8">
             <p className="mb-6 text-gray-300">
-              “The chopped chili fish head was incredible.”
+              {lang === "en"
+                ? "“The chopped chili fish head was incredible.”"
+                : "“剁椒鱼头简直太棒了。”"}
             </p>
 
             <h3 className="font-bold text-red-500">
@@ -203,7 +237,7 @@ export default function Home() {/*  */
             </h3>
 
             <p className="mt-2 text-sm text-gray-500">
-              Customer Review
+              {lang === "en" ? "Customer Review" : "顾客评价"}
             </p>
           </div>
 
@@ -217,32 +251,34 @@ export default function Home() {/*  */
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-4">
 
           <div>
-            <h3 className="mb-4 text-2xl font-bold text-red-500">
-              湘味馆
+            <h3 className="text-2xl font-bold text-red-500">
+              {lang === "en" ? "Long's Kitchen" : "湘味馆"}
             </h3>
 
             <p className="text-gray-400">
-              Authentic Hunan Cuisine. Bold Spice. Wok-Fired Flavor.
+              {lang === "en"
+                ? "Authentic Hunan Cuisine. Bold Spice. Wok-Fired Flavor."
+                : "正宗湖南菜，香辣浓郁，锅气十足。"}
             </p>
           </div>
 
           <div>
             <h4 className="mb-4 font-bold">
-              Contact
+              {lang === "en" ? "Contact" : "联系我们"}
             </h4>
 
             <p className="text-gray-400">
-              (949) 379-6188
+              {lang === "en" ? "(949) 379-6188" : "（949）379-6188"}
             </p>
 
             <p className="text-gray-400">
-              zzeling@gmail.com
+              {lang === "en" ? "zzeling@gmail.com" : "zzeling@gmail.com"}
             </p>
           </div>
 
           <div>
             <h4 className="mb-4 font-bold">
-              Hours
+              {lang === "en" ? "Hours" : "营业时间"}
             </h4>
 
             <p className="text-gray-400">
@@ -256,7 +292,7 @@ export default function Home() {/*  */
 
           <div>
             <h4 className="mb-4 font-bold">
-              Location
+              {lang === "en" ? "Location" : "门店地址"}
             </h4>
 
             <p className="text-gray-400">
@@ -264,14 +300,14 @@ export default function Home() {/*  */
             </p>
 
             <p className="text-gray-400">
-              Authentic 湘菜 Experience
+              {lang === "en" ? "Authentic Hunan Cuisine Experience" : "地道湖南菜用餐体验"}
             </p>
           </div>
 
         </div>
         <section className="mb-16">
           <h2 className="mb-8 text-center text-4xl font-bold">
-            Visit Us
+            {lang === "en" ? "Visit Us" : "欢迎到店"}
           </h2>
 
           <div className="overflow-hidden rounded-3xl border border-neutral-800">
@@ -285,6 +321,13 @@ export default function Home() {/*  */
           </div>
         </section>
         <div className="mt-16 border-t border-neutral-800 pt-8 text-center text-sm text-gray-500">
+
+          <p className="mb-4 text-gray-400">
+            {lang === "en"
+              ? "Bold Hunan Flavor. Modern Chinese Dining."
+              : "香辣湘味，现代中餐体验。"}
+          </p>
+
           © 2026 Long&apos;s Kitchen. All rights reserved.
         </div>
 
