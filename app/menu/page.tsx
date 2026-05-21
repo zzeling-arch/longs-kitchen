@@ -109,19 +109,112 @@ export default function MenuPage() {
           ← Back to Home
         </a>
 
-        <div className="mb-16 text-center">
-          <h1 className="mb-4 text-5xl font-bold text-red-500">湘味馆</h1>
-          <p className="text-2xl text-white">Long&apos;s Kitchen Menu</p>
-          <p className="mt-4 text-sm text-neutral-400">
+        <div className="mb-16 rounded-3xl border border-neutral-800 bg-neutral-950 px-6 py-12 text-center">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-red-500">
+            Long&apos;s Kitchen
+          </p>
+
+          <h1 className="mb-4 text-5xl font-bold text-red-500">
+            湘味馆 Menu
+          </h1>
+
+          <p className="mx-auto max-w-2xl text-neutral-400">
+            Authentic Hunan cuisine crafted with bold spice, wok-fired flavor,
+            and traditional 湘菜 spirit.
+          </p>
+
+          <p className="mt-6 text-sm text-neutral-500">
             * Mild spicy &nbsp; ** Medium spicy &nbsp; V Vegetarian
           </p>
+        
+
+        </div><div className="mb-16 grid gap-6 md:grid-cols-3">
+
+          <div className="overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-950 transition hover:border-red-500">
+            <img
+              src="/dish1.jpg"
+              alt="农家小炒肉"
+              className="h-56 w-full object-cover"
+            />
+
+            <div className="p-5">
+              <div className="mb-2 flex items-center justify-between">
+                <h3 className="text-xl font-bold">农家小炒肉</h3>
+
+                <span className="rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-white">
+                  Chef Special
+                </span>
+              </div>
+
+              <p className="text-sm text-neutral-400">
+                湖南经典农家风味，锅气十足，香辣下饭。
+              </p>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-950 transition hover:border-red-500">
+            <img
+              src="/dish2.jpg"
+              alt="霸王别姬"
+              className="h-56 w-full object-cover"
+            />
+
+            <div className="p-5">
+              <div className="mb-2 flex items-center justify-between">
+                <h3 className="text-xl font-bold">霸王别姬</h3>
+
+                <span className="rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-white">
+                  Signature
+                </span>
+              </div>
+
+              <p className="text-sm text-neutral-400">
+                湘味馆招牌特色菜，香辣浓郁，层次丰富。
+              </p>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-950 transition hover:border-red-500">
+            <img
+              src="/dish3.jpg"
+              alt="霸王双椒鱼头"
+              className="h-56 w-full object-cover"
+            />
+
+            <div className="p-5">
+              <div className="mb-2 flex items-center justify-between">
+                <h3 className="text-xl font-bold">霸王双椒鱼头</h3>
+
+                <span className="rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-white">
+                  Best Seller
+                </span>
+              </div>
+
+              <p className="text-sm text-neutral-400">
+                双椒搭配鲜嫩鱼头，香辣过瘾，地道湖南风味。
+              </p>
+            </div>
+          </div>
+
         </div>
 
+        <div className="mb-12 flex flex-wrap justify-center gap-3">
+          {menuSections.map((section) => (
+            <a
+              key={section.title}
+              href={`#${section.title}`}
+              className="rounded-full border border-neutral-700 px-5 py-2 text-sm text-neutral-300 transition hover:border-red-500 hover:text-red-500"
+            >
+              {section.chinese} {section.title}
+            </a>
+          ))}
+        </div>
         <div className="grid gap-10 md:grid-cols-2">
           {menuSections.map((section) => (
             <section
               key={section.title}
-              className="rounded-3xl border border-neutral-800 bg-neutral-950 p-6"
+              id={section.title}
+              className="rounded-3xl border border-neutral-800 bg-neutral-950 p-6 transition duration-300 hover:border-red-500 hover:bg-neutral-900"
             >
               <h2 className="mb-6 text-3xl font-bold text-red-500">
                 {section.chinese} {section.title}
@@ -135,7 +228,15 @@ export default function MenuPage() {
                   >
                     <div>
                       <h3 className="text-lg font-semibold">{name}</h3>
-                      <p className="text-sm text-neutral-400">{chinese}</p>
+                      <div className="flex items-center gap-2">
+                        <p className="text-sm text-neutral-400">{chinese}</p>
+
+                        {["Stir Fry", "Special Flavors"].includes(section.title) && (
+                          <span className="rounded-full bg-red-500/20 px-2 py-1 text-xs text-red-400">
+                            🌶 Spicy
+                          </span>
+                        )}
+                      </div>
                     </div>
 
                     <p className="shrink-0 font-bold text-red-500">{price}</p>
