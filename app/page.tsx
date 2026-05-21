@@ -14,7 +14,9 @@ export default function Home() {
         }}
       >
         <nav className="absolute left-0 top-0 z-20 flex w-full items-center justify-between px-4 md:px-8 py-6">
-          <h1 className="text-2xl font-bold text-red-500">湘味馆</h1>
+          <h1 className="text-2xl font-bold text-red-500">
+            {lang === "en" ? "Long's Kitchen" : "湘味馆"}
+          </h1>
 
           <div className="flex gap-6 text-white">
             <a href="/menu">
